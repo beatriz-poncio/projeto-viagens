@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard de Viagens</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark mb-4" style="background-color: #1e4490;">
+        <div class="container">
+            <span class="navbar-brand mb-0 h1">✈️ Gestão de Viagens & Milhas</span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="text-center mb-5 mt-3">
+    <img src="{% static 'img/banner.png' %}" class="img-fluid rounded shadow" alt="Banner de Viagens">
+</div>
+        <h2 class="mb-4">Meus Programas de Fidelidade</h2>
+        <div class="row mb-5">
+            {% for programa in programas %}
+            <div class="col-md-4">
+               <div class="card text-white mb-3 shadow-sm" style="background-color: #bd9c9b;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ programa.nome }}</h5>
+                        <p class="card-text fs-4">{{ programa.saldo_pontos }} pts</p>
+                        {% if programa.data_expiracao_proxima %}
+                        <small>Expira em: {{ programa.data_expiracao_proxima|date:"d/m/Y" }}</small>
+                        {% else %}
+                        <small>Não expira</small>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <h2 class="mb-4">Minhas Viagens</h2>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Destino</th>
+                            <th>Ida</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for viagem in viagens %}
+                        <tr>
+                            <td><strong>{{ viagem.titulo }}</strong></td>
+                            <td>{{ viagem.destino_principal }}</td>
+                            <td>{{ viagem.data_ida|date:"d/m/Y" }}</td>
+                            <td>
+                                <span class="badge bg-secondary">{{ viagem.get_status_display }}</span>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
