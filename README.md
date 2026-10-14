@@ -3,15 +3,14 @@
 ## 📖 Descrição Resumida
 Aplicação Web desenvolvida para centralizar a gestão de viagens futuras (voos e trechos rodoviários) e o controle de saldo e vencimento de pontos em diferentes programas de fidelidade. O sistema possui um painel administrativo dinâmico e um dashboard interativo.
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadasgit add README.md
 * **Backend:** Python e Django (Arquitetura MVT)
 * **Frontend:** HTML5, Bootstrap 5 e CSS
 * **Banco de Dados:** SQLite3 (Padrão do Django)
 * **Versionamento:** Git e GitHub
 
-## 👥 Integrantes (Dupla)
+## 👥 Integrantes 
 * Beatriz Poncio
-* Assistente IA (Dupla do Projeto)
 
 ## ⚙️ Instruções de Instalação
 Siga os passos abaixo para preparar o ambiente de desenvolvimento na sua máquina:
